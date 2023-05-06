@@ -1,0 +1,7 @@
+.primary_key > text {
+  text-decoration: underline;
+}
+.weak_key > text {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}

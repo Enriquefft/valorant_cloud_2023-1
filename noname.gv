@@ -1,0 +1,53 @@
+graph ER_MODEL {
+	graph [layout=fdp, rankdir=TB, sep=1];
+
+  stylesheet="styles.css"
+  
+
+  // Defaults
+  node [fontname="Helvetica,Arial,sans-serif", overlap=false, penwidth=1.5]
+  // Border width
+
+  // Entity
+  node [shape=box,style=filled,fillcolor=lightblue];
+  User; Game;
+
+  // Relation
+  node [shape=diamond,style=filled,fillcolor=lightpink];
+  participates;
+
+  // Weak Entity
+  node [shape=box,style=filled,fillcolor=lightblue,peripheries=2];
+
+  // Weak Relation
+  node [shape=diamond,style=filled,fillcolor=lightpink,peripheries=2];
+
+  // Atribute
+  node [shape=ellipse,style=filled,fillcolor=lightgreen,peripheries=1];
+  age;username;mail;password;
+  rank;level;
+
+  kills;deaths;agent;
+
+  // Derived Atribute (dotted border)
+  node [shape=ellipse,style="filled,dashed",fillcolor=lightgreen,peripheries=1];
+  total_kills;total_deaths;total_matches;
+  
+
+
+  // Primary key
+  node [shape=ellipse,style=filled,fillcolor=lightgreen,peripheries=1,class="primary_key"];
+  code;
+  id;
+
+  // Weak Key
+  node [shape=ellipse,style=filled,fillcolor=lightgreen,peripheries=2,class="weak_key"];
+
+User -- participates;
+Game -- participates [color = "black:invis:black"]
+
+User -- {age, id, username, mail, password, rank, level, total_kills,total_deaths,total_matches}
+participates -- {kills, deaths, agent}
+Game -- {code}
+
+}
