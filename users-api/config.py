@@ -1,0 +1,11 @@
+# app.config['MYSQL_DATABASE_USER'] = 'root'
+# app.config['MYSQL_DATABASE_PASSWORD'] = 'utec'
+# app.config['MYSQL_DATABASE_DB'] = 'usuarios'
+# app.config['MYSQL_DATABASE_HOST'] = '3.227.149.124'
+# app.config['MYSQL_DATABASE_PORT'] = 8005
+
+MYSQL_DATABASE_USER = 'root'
+MYSQL_DATABASE_PASSWORD = 'utec'
+MYSQL_DATABASE_DB = 'usuarios'
+MYSQL_DATABASE_HOST = '3.227.149.124'
+MYSQL_DATABASE_PORT = 8005

@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "api-1"
+version = "0.1.0"
+description = "Users api for the Cloud computing project, Valorant."
+authors = ["Enrique <enrique.flores@utec.edu.pe>"]
+readme = "README.md"
+packages = [{include = "api_1"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "*"
+flask-restful = "*"
+flask-mysql = "*"
+build = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

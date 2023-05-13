@@ -1,5 +1,5 @@
 graph ER_MODEL {
-	graph [layout=fdp, rankdir=TB, sep=1];
+	graph [layout=sfdp, rankdir=TB];
 
   stylesheet="styles.css"
   
@@ -10,7 +10,7 @@ graph ER_MODEL {
 
   // Entity
   node [shape=box,style=filled,fillcolor=lightblue];
-  User; Game;
+  App_User; Game;
 
   // Relation
   node [shape=diamond,style=filled,fillcolor=lightpink];
@@ -18,9 +18,11 @@ graph ER_MODEL {
 
   // Weak Entity
   node [shape=box,style=filled,fillcolor=lightblue,peripheries=2];
+  Player_Account;
 
   // Weak Relation
   node [shape=diamond,style=filled,fillcolor=lightpink,peripheries=2];
+  has_game;
 
   // Atribute
   node [shape=ellipse,style=filled,fillcolor=lightgreen,peripheries=1];
@@ -43,11 +45,18 @@ graph ER_MODEL {
   // Weak Key
   node [shape=ellipse,style=filled,fillcolor=lightgreen,peripheries=2,class="weak_key"];
 
-User -- participates;
 Game -- participates [color = "black:invis:black"]
 
-User -- {age, id, username, mail, password, rank, level, total_kills,total_deaths,total_matches}
+App_User -- {age, id, username, mail, password }
+Player_Account -- {rank, level, total_kills,total_deaths,total_matches}
+
+
+App_User -- participates
 participates -- {kills, deaths, agent}
 Game -- {code}
+
+edge [dir= forward, color = "black:black"]
+App_User -- has_game
+Player_Account -- has_game
 
 }
