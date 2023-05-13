@@ -239,6 +239,3 @@ class Usuario(Resource):
 #API resource routes
 api.add_resource(ListaUsuario, '/usuarios', endpoint='usuarios')
 api.add_resource(Usuario, '/usuario/<usr>', endpoint='usuario') #usr = nombre del Usuario Original
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000, debug=True)

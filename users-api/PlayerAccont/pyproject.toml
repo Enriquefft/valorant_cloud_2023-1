@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Enrique <enrique.flores@utec.edu.pe>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask-restful = "*"
+flask = "*"
+flask-sqlalchemy = "*"
+build = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
