@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "app"
+name = "matches"
 version = "0.1.0"
 description = ""
 authors = ["Enrique <enrique.flores@utec.edu.pe>"]
@@ -11,6 +11,7 @@ flask-restful = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 build = "*"
+flask-mysql = "*"
 
 
 [tool.poetry.group.dev.dependencies]

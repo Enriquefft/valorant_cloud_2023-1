@@ -1,0 +1,15 @@
+POST http://localhost:5000/usuarios
+Content-Type: application/x-www-form-urlencoded
+
+usuario=test1&contrasena=contra1&correo=test1@mail.com&edad=1&sexo=m
+
+
+
+{
+	"usuario": "test1",
+	"contrasena": "contra1",
+	"correo":  "test1@mail.com",
+	"edad":  "1",
+	"sexo":  "m",
+	}
+}
