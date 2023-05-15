@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flaskext.mysql import MySQL
 from flask_restful import Resource, Api
+from flask_cors import CORS
 
 def create_app(config_file=None):
 
@@ -12,6 +13,8 @@ def create_app(config_file=None):
 
 #Create an instance of Flask RESTful API
     api = Api(app)
+
+    CORS(app)
 
 #Set database credentials in config.
     app.config['MYSQL_DATABASE_HOST'] = 'valorant-db.clofpmbdqs3h.us-east-1.rds.amazonaws.com'

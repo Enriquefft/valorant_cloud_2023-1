@@ -4,7 +4,10 @@ import AboutView from '../views/AboutView.vue'
 import AgentsView from '../views/AgentsView.vue'
 import Test from '../views/TestView.vue'
 import PlayerInfo from  '../views/PlayerInfoView.vue'
-import LoginView from  '../views/LoginView.vue'
+import UsersView from  '../views/UsersView.vue'
+import PlayersView from  '../views/PlayersView.vue'
+import MatchesView from  '../views/MatchesView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -16,31 +19,23 @@ const router = createRouter({
     {
       path: '/users',
       name: 'users',
-      component: LoginView
+      component: UsersView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: AboutView
+      path: '/players',
+      name: 'players',
+      component: PlayersView
+    },
+    {
+      path: '/matches',
+      name: 'matches',
+      component: MatchesView
     },
     {
       path: '/agents',
       name: 'agents',
       component: AgentsView
     },
-    {
-      path: '/test',
-      name: 'test',
-      component: Test
-    },
-    {
-      path: '/playerinfo',
-      name: 'playerinfo',
-      component: PlayerInfo
-    }
   ]
 })
 

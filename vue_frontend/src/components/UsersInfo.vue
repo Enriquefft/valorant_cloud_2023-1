@@ -1,14 +1,23 @@
 <template>
     <div class="input-background">
+
+          <div class="input-information">
+
+      <div v-for="user in users">
+        {{user.usuario}} | {{user.correo}} | {{user.edad}} | {{user.sexo}}
+      </div>
+
+
+          </div>
+
+
             <div class="input-information">
                 <h1>Username</h1>
                 <input v-model="usuario">
                 
-                <button :on-click="getInformationApi()">
-                    ➜
-                </button>
+                <div :on-click="getInformationApi()"></div>
 
-                <div class="data">
+                <div v-if='id != undefined' class="data">
 
                   <p>correo: {{correo}}</p>
                   <p>edad: {{edad}}</p>
@@ -19,11 +28,6 @@
             </div>
 
     </div>
-    
-
-
-    
-   
   
 
 </template>
@@ -38,6 +42,9 @@ export default {
           contrasena: "",
           sexo: "",
           edad: "",
+
+          users: [],
+
         }
     },
 
@@ -45,36 +52,36 @@ export default {
 
         getInformationApi(){
 
-        // 3.89.205.36
-        // valorant-LB-655622502.us-east-1.elb.amazonaws.comamazonaws.com
           fetch("http://valorant-LB-655622502.us-east-1.elb.amazonaws.com:8001/usuario/" + this.usuario)
           .then(data => data.json())
 
           .then(x => {
 
-          console.log(x);
+          // console.log(x);
           this.id = x.id;
           this.correo = x.correo
           this.sexo = x.sexo
           this.edad = x.edad
+        })
+        .catch(err => {
+        // console.log(err)
+          this.id = undefined
+          this.correo = undefined
+          this.sexo = undefined
+          this.edad = undefined
+        })
+          fetch("http://valorant-LB-655622502.us-east-1.elb.amazonaws.com:8001/usuarios")
+          .then(data => data.json())
+
+          .then(data => {
+          this.users = data
 
         })
+        .catch(err => {
+        // console.log(err)
+          this.users = []
+        })
 
-        .catch(err => console.log(err))
-        
-            // fetch("https://api.henrikdev.xyz/valorant/v1/account/" +  newUsername + "/" + this.tagline )
-            //     .then(info => info.json()).then(info => {
-            //         info.status === 200;
-            //
-            //         this.data_api_player = info.data;
-            //         
-            //         this.puuid = info.data.puuid;
-            //         this.region = info.data.region;
-            //         this.account_level = info.data.account_level;
-            //
-            //         this.information_bool = true;
-            //
-            //     })
         }
     },
 

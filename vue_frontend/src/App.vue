@@ -4,17 +4,13 @@ import { RouterLink } from 'vue-router';
   <div class="nav-menu">      
     <img src="./components/icons/valorant-icon.png">
     <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/playerinfo">Player Info</RouterLink>
     <RouterLink to="/agents">Agents</RouterLink>  
-    <RouterLink to="/test">Test</RouterLink>      
-    <RouterLink to="/get_user">Usuario</RouterLink>      
-    <RouterLink to="/borrar_usuario">borrar Usuario</RouterLink>      
-    <RouterLink to="/us">borrar Usuario</RouterLink>      
+    <RouterLink to="/users">Users</RouterLink>      
+    <RouterLink to="/players">Players</RouterLink>      
+    <RouterLink to="/matches">Matches</RouterLink>      
 
   </div>
     
-    
- 
 
   <RouterView />
 </template>
@@ -24,9 +20,6 @@ export default {
 
 }
 </script>
-
-
-
 
 <style>
 
