@@ -49,8 +49,6 @@ def create_app(config_file=None):
                 if len(consulta.fetchall()) == 0:
                     return jsonify({"status" : 404 , "msg" : "El usuario valorant no existe"})
 
-
-
                 c1 = """SELECT idUsuario,rango,nivel,totalMuertes,totalPartidos,totalAsesinatos 
                         FROM PlayerAccount WHERE idUsuario = %s"""       
                 

@@ -1,26 +1,23 @@
 <template>
     <div class="input-background">
 
-          <div class="input-information">
-
-          </div>
-
 
             <div class="input-information">
                 <h1>id</h1>
                 <input v-model="id">
                 
                 <div :on-click="getInformationApi()"></div>
-       {{partidas}}
 
-                <!-- <div v-if='partidas != []' class="data"> -->
-                <!---->
-                <!-- <div v-for="partida in partidas" :key="partida.id"> -->
-                <!--   {{partida.id}} -->
-                <!---->
-                <!-- </div> -->
+
+                <div v-if='partidas != []' class="data">
+
+                  <p>agente | asesinatos | muertes></p>
+                <div v-for="partida in partidas" :key="partida.id">
+                  {{partida.agente}} | {{partida.asesinatos}} | {{partida.muertes}}
+
+                </div>
     
-            <!-- </div> -->
+            </div>
 <!---->
     </div>
   
@@ -45,15 +42,24 @@ export default {
           
 
           fetch("http://valorant-LB-655622502.us-east-1.elb.amazonaws.com:8003/partidas/" + this.id)
-          .then(data => data.json())
+          .then(data => {
+          if(data.ok){
+          return data.json()
+          }
+          else{
+          throw(data.status)
+          }
+          })
 
-          .then(x => {
+          .then(data => {
 
-          console.log(x);
-          this.partidas = x;
+          if(data.status == 404){
+          throw(data.status)
+          }
+
+          this.partidas = data;
         })
-        .catch(err => {
-        console.log(err)
+        .catch(_err => {
           this.partidas = []
         })
     }

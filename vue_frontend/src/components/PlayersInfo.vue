@@ -2,24 +2,18 @@
 <template>
     <div class="input-background">
 
-          <div class="input-information">
-
-          </div>
-
 
             <div class="input-information">
                 <h1>id</h1>
                 <input v-model="id">
                 
                 <div :on-click="getInformationApi()"></div>
-       {{data}}
 
-                <!-- <div v-if='partidas != []' class="data"> -->
-                <!---->
-                <!-- <div v-for="partida in partidas" :key="partida.id"> -->
-                <!--   {{partida.id}} -->
-                <!---->
-                <!-- </div> -->
+<div v-if='data != undefined' class="data">
+
+        <p>{{data}}</p>
+
+                </div>
     
             <!-- </div> -->
 <!---->
@@ -34,7 +28,7 @@ export default {
     data() {
         return {
           id: "",
-          data: {},
+          data: undefined,
 
         }
     },
@@ -46,16 +40,23 @@ export default {
           
 
           fetch("http://valorant-LB-655622502.us-east-1.elb.amazonaws.com:8002/competitivo/" + this.id)
-          .then(data => data.json())
-
-          .then(x => {
-
-          console.log(x);
-          this.data = x;
+          .then(data => {
+          if(data.ok){
+          return data.json();
+          } else{
+            throw(data.status);
+          }
         })
-        .catch(err => {
-        console.log(err)
-          this.data = {}
+
+          .then(data => {
+
+          if(data.status == 404){
+            throw(data.status);
+          }
+          this.data = data;
+        })
+        .catch(_err => {
+          this.data = undefined;
         })
     }
     },
