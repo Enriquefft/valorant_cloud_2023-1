@@ -7,6 +7,10 @@ import { RouterLink } from 'vue-router';
     <RouterLink to="/playerinfo">Player Info</RouterLink>
     <RouterLink to="/agents">Agents</RouterLink>  
     <RouterLink to="/test">Test</RouterLink>      
+    <RouterLink to="/get_user">Usuario</RouterLink>      
+    <RouterLink to="/borrar_usuario">borrar Usuario</RouterLink>      
+    <RouterLink to="/us">borrar Usuario</RouterLink>      
+
   </div>
     
     

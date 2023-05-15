@@ -1,15 +1,2 @@
-POST http://localhost:5000/usuarios
-Content-Type: application/x-www-form-urlencoded
-
-usuario=test1&contrasena=contra1&correo=test1@mail.com&edad=1&sexo=m
-
-
-
-{
-	"usuario": "test1",
-	"contrasena": "contra1",
-	"correo":  "test1@mail.com",
-	"edad":  "1",
-	"sexo":  "m",
-	}
-}
+GET http://3.234.253.108:8001/usuario/test1
+GET http://localhost:8080/54.235.27.50:8001/usuario/

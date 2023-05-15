@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import AgentsView from '../views/AgentsView.vue'
 import Test from '../views/TestView.vue'
 import PlayerInfo from  '../views/PlayerInfoView.vue'
+import LoginView from  '../views/LoginView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,6 +12,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/users',
+      name: 'users',
+      component: LoginView
     },
     {
       path: '/about',

@@ -9,6 +9,7 @@ flask = "*"
 flask-sqlalchemy = "*"
 build = "*"
 flask-mysql = "*"
+flask-cors = "*"
 
 [dev-packages]
 

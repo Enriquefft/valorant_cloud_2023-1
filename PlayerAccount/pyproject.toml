@@ -12,6 +12,7 @@ flask = "*"
 flask-sqlalchemy = "*"
 build = "*"
 flask-mysql = "*"
+flask-cors = "*"
 
 
 [tool.poetry.group.dev.dependencies]
